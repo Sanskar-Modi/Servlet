@@ -1,0 +1,75 @@
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport"
+            content="width=device-width",initial-scale="1">
+            <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+            <style>
+                    input{
+                border-radius: 25px;
+                border: 2px solid ;
+                padding: 20px; 
+                width: 200px;
+                height: 15px;    
+            }
+            input:hover{
+                width:320px;
+            }
+            h2
+            {
+                color: crimson;
+            }
+                </style>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script>
+   //to validate email
+   function validateEmail()
+            {
+                var mail = document.getElementById("mail").value;
+                var atpos = mail.indexOf("@");
+                var dotpos = mail.lastIndexOf(".");
+
+                if(atpos<1 || dotpos < atpos+2 || dotpos+2>=mail)
+                    {
+                        document.getElementById("s1").style.color="red";
+                    document.getElementById("s1").innerHTML="Invalid";
+                        
+                    }
+                    else{
+                        document.getElementById("s1").style.color="green";
+                        document.getElementById("s1").innerHTML="valid";
+                    }
+            }
+  </script>
+    </head>
+   
+
+    <body align="center" background = "i.jpg">
+        <div class="container" align="center">
+            <form action="Login"> 
+                <fieldset>
+
+                    <br><br>
+                    <h2>Login Here</h2><br><br>
+                    
+                    <div class = "form-group">
+                            <input type = "email" id="mail" placeholder=" Email" name="e" required onkeyup="validateEmail()">
+                            <span id = "s1"></span>
+                        </div>
+                    <div class = "form-group">
+                        <input type = "password" placeholder=" Password" name="p" required>
+                    </div>
+                    
+                    
+                    <div class = "form-group">
+                           
+                            <button type="submit" class="btn-secondary">Login</button>
+                    </div>
+                </fieldset>
+                </form>
+            </div>
+        </body>
+        </html>

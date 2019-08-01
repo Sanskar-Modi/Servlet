@@ -1,0 +1,165 @@
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport"
+            content="width=device-width",initial-scale="1">
+            <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+            <style>
+                input{
+                border-radius: 25px;
+                border: 2px solid ;
+                padding: 20px; 
+                width: 200px;
+                height: 15px;    
+            }
+            input:hover{
+                width:320px;
+            }
+            h2
+            {
+                color: crimson;
+            }
+                </style>
+                <script src="bootstrap.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+             
+             <script>
+                  // to validate name
+                function validateName()
+                {         
+                    var uname =document.getElementById("uname").value;
+                    if(uname.length<8)
+                    {
+                    //console.log(uname);
+                    document.getElementById("s1").style.color="red";
+                       document.getElementById("s1").innerHTML="Invalid";
+                    }
+                    else{
+                      document.getElementById("s1").innerHTML="Valid";
+                      document.getElementById("s1").style.color="green";
+                    }
+                }
+                //to check password
+             function checkPass()
+            {
+                var a = document.getElementById("pass").value;
+                var b = document.getElementById("cpass").value;
+
+                if(a==b)
+                {
+                    document.getElementById("s3").style.color="green";
+                   document.getElementById("s3").innerHTML="Valid";
+                }
+                else{
+                    document.getElementById("s3").style.color="red";
+                    document.getElementById("s3").innerHTML="Invalid";
+                }
+            }
+            //to validate email
+            function validateEmail()
+            {
+                var mail = document.getElementById("mail").value;
+                var atpos = mail.indexOf("@");
+                var dotpos = mail.lastIndexOf(".");
+
+                if(atpos<1 || dotpos < atpos+2 || dotpos+2>=mail)
+                    {
+                        document.getElementById("s2").style.color="red";
+                    document.getElementById("s2").innerHTML="Invalid";
+                        
+                    }
+                    else{
+                        document.getElementById("s2").style.color="green";
+                        document.getElementById("s2").innerHTML="valid";
+                    }
+            }
+             // to validate contact no 
+             function validateContact()
+                {         
+                    var num =document.getElementById("no").value;
+                    if(num.length<10)
+                    {
+                   
+                     document.getElementById("s5").style.color="red";
+                       document.getElementById("s5").innerHTML="Invalid";
+                    }
+                    else{
+                        document.getElementById("s5").style.color="green";
+                      document.getElementById("s5").innerHTML="Valid";
+                    
+                    }
+                }
+                // to validate dob
+                function dval()
+                {
+                    var da=document.getElementById("dob").value;
+                    var date = new Date(da);
+                    var year = Number(date.getFullYear());
+                    var dd= 2000;
+                    if(year>=dd)
+                    {
+                        document.getElementById("s4").style.color="red";
+                        document.getElementById("s4").innerHTML="Invalid";
+                    }
+                    else{
+                        document.getElementById("s4").style.color="green";
+                        document.getElementById("s4").innerHTML="Valid";
+                    }
+                }
+             </script>
+    </head>
+   
+
+    <body align="center" background = "i.jpg">
+        <div class="container" align="center">
+            <form   action="Register"> 
+                <fieldset>
+
+                    <br><br>
+                    <h2>Register Here</h2><br><br>
+                    <div class = "form-group">
+                        
+                        <input type = "text" placeholder=" User Name" name ="u" required >
+            
+                    </div>
+                    <div class = "form-group">
+                        <input type = "text" placeholder=" Name" id="uname"required>
+                        <span id="s1"></span>
+                    </div>
+                    <div class = "form-group">
+                            <input type = "email" placeholder=" Email" id = "mail"required name="e" onkeyup="validateEmail()">
+                            <span id="s2"></span>
+                        </div>
+                    <div class = "form-group">
+                        <input type = "password" placeholder=" Password" id="pass"required>
+                        
+                    </div>
+                   
+                    <div class = "form-group">
+                        <input type = "password" placeholder="Confirm Password" name="p" onkeyup = "checkPass()"id="cpass"required>
+                        <span id="s3"></span>
+                    </div>
+                    
+                    <div class = "form-group">
+                        <input type = "date" placeholder=" DoB" onchange = "dval()"  id = "dob" required>
+                        <span id="s4"></span>
+                    </div>
+                    <div class = "form-group" >
+                        <input type = "radio" value="Male" name ="gender"  required>Male
+                         <input type = "radio" value="Male" name ="gender" required>Female
+                                            </div>
+                    <div class = "form-group">
+                        <input type = "tel" placeholder=" Contact Number" id = "no" onkeyup = "validateContact()"required>
+                        <span id="s5"></span>
+                    </div>
+                    <div class = "form-group">
+                            <button type="submit" class="btn-primary">Register</button>
+                            <button type="button" class="btn-secondary" >Login</button>
+                    </div>
+                </fieldset>
+                </form>
+            </div>
+        </body>
+        </html>
